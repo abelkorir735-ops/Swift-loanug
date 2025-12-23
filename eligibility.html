@@ -1,0 +1,2436 @@
+<!DOCTYPE html>
+<html lang="en">
+ <!-- Brevo Conversations {literal} -->
+<script>
+    (function(d, w, c) {
+        w.BrevoConversationsID = '67cfe70069e9058aa30db4b2';
+        w[c] = w[c] || function() {
+            (w[c].q = w[c].q || []).push(arguments);
+        };
+        var s = d.createElement('script');
+        s.async = true;
+        s.src = 'https://conversations-widget.brevo.com/brevo-conversations.js';
+        if (d.head) d.head.appendChild(s);
+    })(document, window, 'BrevoConversations');
+</script>
+<!-- /Brevo Conversations {/literal} -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Swift Loan UG - Apply for a loan in Uganda. Quick and easy loan application.">
+    <title>Apply for Loan - Swift Loan UG</title>
+    <link rel="icon" type="image/png" href="swiftloan-logo.png">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-orange: #FF6B00;
+            --primary-blue: #001F5C;
+            --light-gray: #F5F5F5;
+            --text-dark: #333;
+            --white: #FFFFFF;
+            --error-red: #dc3545;
+            --success-green: #28a745;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: var(--light-gray);
+        }
+
+        /* SVG Icon Styling */
+        .svg-icon {
+            width: 24px;
+            height: 24px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .svg-icon-sm {
+            width: 18px;
+            height: 18px;
+        }
+
+        .svg-icon-lg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .section-svg-icon {
+            width: 26px;
+            height: 26px;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            padding: 0.5rem 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        .logo-text-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-main {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+            line-height: 1.2;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-main span {
+            color: var(--primary-orange);
+        }
+
+        .uganda-flag {
+            width: 32px;
+            height: 22px;
+            border-radius: 3px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .logo-tagline {
+            font-size: 0.5rem;
+            color: var(--primary-orange);
+            letter-spacing: 0.5px;
+        }
+
+        .back-to-home {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.8rem 1.5rem;
+            background: var(--primary-blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+            font-weight: 500;
+        }
+
+        .back-to-home:hover {
+            background: var(--primary-orange);
+            transform: translateY(-2px);
+        }
+
+        .back-arrow-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Error Notification Box */
+        .error-notification-box {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            max-width: 400px;
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transform: translateX(150%);
+            transition: transform 0.4s ease;
+            overflow: hidden;
+        }
+
+        .error-notification-box.active {
+            transform: translateX(0);
+        }
+
+        .error-notification-header {
+            background: var(--error-red);
+            color: var(--white);
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .error-notification-header h4 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .close-error-btn {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .error-list {
+            padding: 1rem 1.5rem;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .error-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--light-gray);
+            color: var(--error-red);
+        }
+
+        .error-item:last-child {
+            border-bottom: none;
+        }
+
+        .error-icon {
+            flex-shrink: 0;
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 5%;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .page-title h1 {
+            color: var(--primary-blue);
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .page-title p {
+            color: #666;
+        }
+
+        /* Progress Indicator */
+        .progress-indicator {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            margin-bottom: 2rem;
+        }
+
+        .progress-step {
+            display: flex;
+            align-items: center;
+        }
+
+        .step-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #ddd;
+            color: #666;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .step-circle.active {
+            background: var(--primary-orange);
+            color: var(--white);
+        }
+
+        .step-circle.completed {
+            background: var(--success-green);
+            color: var(--white);
+        }
+
+        .step-line {
+            width: 80px;
+            height: 4px;
+            background: #ddd;
+            transition: 0.3s;
+        }
+
+        .step-line.completed {
+            background: var(--success-green);
+        }
+
+        /* Form Sections */
+        .form-section {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            display: none;
+        }
+
+        .form-section.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--light-gray);
+        }
+
+        .section-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+
+        .section-header h2 {
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary-blue);
+            font-weight: 500;
+        }
+
+        .form-group label .required {
+            color: var(--error-red);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: 0.3s;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-orange);
+            box-shadow: 0 0 0 3px rgba(255,107,0,0.1);
+        }
+
+        .form-group input.valid,
+        .form-group select.valid {
+            border-color: var(--success-green);
+        }
+
+        .form-group input.invalid,
+        .form-group select.invalid {
+            border-color: var(--error-red);
+        }
+
+        .field-error {
+            color: var(--error-red);
+            font-size: 0.85rem;
+            margin-top: 0.3rem;
+            display: none;
+        }
+
+        .field-error.show {
+            display: block;
+            animation: shake 0.3s ease;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        /* Phone Input with Uganda Flag */
+        .phone-input-group {
+            display: flex;
+            align-items: stretch;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .phone-input-group:focus-within {
+            border-color: var(--primary-orange);
+            box-shadow: 0 0 0 3px rgba(255,107,0,0.1);
+        }
+
+        .phone-prefix {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0 12px;
+            background: var(--light-gray);
+            border-right: 2px solid #ddd;
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        .phone-prefix .uganda-flag-sm {
+            width: 24px;
+            height: 16px;
+            border-radius: 2px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .phone-number-input {
+            flex: 1;
+            border: none !important;
+            padding: 0.9rem 1rem !important;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .phone-number-input:focus {
+            box-shadow: none !important;
+        }
+
+        /* Loan Amount Slider */
+        .loan-slider-container {
+            margin: 1.5rem 0;
+        }
+
+        .loan-amount-display {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .loan-amount-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-orange);
+        }
+
+        .loan-amount-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .loan-slider {
+            width: 100%;
+            height: 10px;
+            border-radius: 5px;
+            background: linear-gradient(to right, var(--primary-orange) 50%, #ddd 50%);
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .loan-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--primary-blue);
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .loan-range-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.5rem;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        /* Checkbox Section */
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 1rem;
+            background: var(--light-gray);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .checkbox-group:hover {
+            background: rgba(255,107,0,0.1);
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 22px;
+            height: 22px;
+            margin-top: 2px;
+            cursor: pointer;
+            accent-color: var(--primary-orange);
+        }
+
+        .checkbox-group label {
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .checkbox-group a {
+            color: var(--primary-orange);
+            text-decoration: none;
+        }
+
+        .checkbox-group a:hover {
+            text-decoration: underline;
+        }
+
+        /* PDF Download Button */
+        .pdf-download-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #003380 100%);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .pdf-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: var(--white);
+        }
+
+        .pdf-icon-wrapper {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pdf-info-text h4 {
+            margin-bottom: 0.25rem;
+        }
+
+        .pdf-info-text p {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        .btn-download-pdf {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0.9rem 1.5rem;
+            background: var(--primary-orange);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-download-pdf:hover {
+            background: #e55f00;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,107,0,0.4);
+        }
+
+        /* Navigation Buttons */
+        .form-navigation {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-prev {
+            background: var(--light-gray);
+            color: var(--primary-blue);
+        }
+
+        .btn-prev:hover {
+            background: #ddd;
+        }
+
+        .btn-next,
+        .btn-submit {
+            background: var(--primary-orange);
+            color: var(--white);
+            margin-left: auto;
+        }
+
+        .btn-next:hover,
+        .btn-submit:hover {
+            background: #e55f00;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,107,0,0.4);
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        /* Processing Popup */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+
+        .popup-overlay.active {
+            display: flex;
+        }
+
+        .processing-popup {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .processing-title {
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .info-display-container {
+            min-height: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .info-item {
+            background: var(--light-gray);
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            margin: 0.5rem 0;
+            animation: fadeInOut 2s ease forwards;
+            width: 100%;
+        }
+
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            20% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            80% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+        }
+
+        .info-label {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .info-value {
+            font-size: 1.2rem;
+            color: var(--primary-blue);
+            font-weight: bold;
+        }
+
+        /* Loading Animation */
+        .loading-container {
+            display: none;
+        }
+
+        .loading-container.active {
+            display: block;
+        }
+
+        /* Circular Progress Bar */
+        .circular-progress {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .circular-progress svg {
+            transform: rotate(-90deg);
+        }
+
+        .circular-progress .progress-bg {
+            fill: none;
+            stroke: var(--light-gray);
+            stroke-width: 10;
+        }
+
+        .circular-progress .progress-bar {
+            fill: none;
+            stroke: var(--primary-orange);
+            stroke-width: 10;
+            stroke-linecap: round;
+            stroke-dasharray: 314;
+            stroke-dashoffset: 314;
+            transition: stroke-dashoffset 0.1s ease;
+        }
+
+        .progress-value {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+        }
+
+        /* Bouncing Balls */
+        .bouncing-balls {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .bouncing-ball {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--primary-orange);
+            animation: bounce 0.6s infinite alternate;
+        }
+
+        .bouncing-ball:nth-child(1) {
+            animation-delay: 0s;
+            background: var(--primary-orange);
+        }
+
+        .bouncing-ball:nth-child(2) {
+            animation-delay: 0.2s;
+            background: var(--primary-blue);
+        }
+
+        .bouncing-ball:nth-child(3) {
+            animation-delay: 0.4s;
+            background: var(--success-green);
+        }
+
+        @keyframes bounce {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .loading-text {
+            color: var(--primary-blue);
+            font-weight: 500;
+        }
+
+        /* Network Provider Section */
+        .network-provider-section {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid var(--light-gray);
+        }
+
+        .provider-dropdown {
+            position: relative;
+        }
+
+        .provider-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .provider-logo {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+        }
+
+        .phone-validation-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .phone-validation-status.valid {
+            color: var(--success-green);
+        }
+
+        .phone-validation-status.invalid {
+            color: var(--error-red);
+        }
+
+        .phone-validation-status svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Success Animation */
+        .success-container {
+            display: none;
+        }
+
+        .success-container.active {
+            display: block;
+            animation: scaleIn 0.5s ease;
+        }
+
+        @keyframes scaleIn {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--success-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .checkmark {
+            width: 40px;
+            height: 40px;
+            stroke: var(--white);
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+        }
+
+        .checkmark-path {
+            stroke-dasharray: 50;
+            stroke-dashoffset: 50;
+            animation: drawCheck 0.5s ease 0.3s forwards;
+        }
+
+        @keyframes drawCheck {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        .success-title {
+            color: var(--success-green);
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .success-message {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .loan-offers-count {
+            background: var(--primary-orange);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            animation: pulse 1.5s ease infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 3rem 5%;
+            margin-top: 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--primary-orange);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-orange);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-item a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: var(--primary-orange);
+        }
+
+        .footer-icon {
+            width: 20px;
+            height: 20px;
+            opacity: 0.9;
+        }
+
+        .footer-bottom {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .logo-main {
+                font-size: 1.4rem;
+            }
+
+            .page-title h1 {
+                font-size: 1.8rem;
+            }
+
+            .form-section {
+                padding: 1.5rem;
+            }
+
+            .step-line {
+                width: 40px;
+            }
+
+            .form-navigation {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .btn-prev {
+                order: 2;
+            }
+
+            .btn-next, .btn-submit {
+                order: 1;
+                margin-left: 0;
+            }
+
+            .error-notification-box {
+                right: 10px;
+                left: 10px;
+                max-width: none;
+            }
+
+            .pdf-download-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .pdf-info {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo-section">
+                <img src="swiftloan-logo.png" alt="Swift Loan UG Logo" class="logo-img">
+                <div class="logo-text-container">
+                    <div class="logo-main">
+                        Swift <span>Loan</span> UG-
+                        <svg class="uganda-flag" viewBox="0 0 32 22">
+                            <rect y="0" width="32" height="3.67" fill="#000"/>
+                            <rect y="3.67" width="32" height="3.67" fill="#FCDC04"/>
+                            <rect y="7.33" width="32" height="3.67" fill="#D90000"/>
+                            <rect y="11" width="32" height="3.67" fill="#000"/>
+                            <rect y="14.67" width="32" height="3.67" fill="#FCDC04"/>
+                            <rect y="18.33" width="32" height="3.67" fill="#D90000"/>
+                            <circle cx="16" cy="11" r="5" fill="#FFF"/>
+                            <path d="M16 7.5c0.8 0.5 1.3 1.5 1.3 2.5 0 0.8-0.3 1.5-0.8 2l0.5 1.5c0.2 0.5 0 0.8-0.5 0.8h-1c-0.5 0-0.7-0.3-0.5-0.8l0.5-1.5c-0.5-0.5-0.8-1.2-0.8-2 0-1 0.5-2 1.3-2.5z" fill="#000"/>
+                        </svg>
+                    </div>
+                    <div class="logo-tagline">EMPOWERING BUSINESS THROUGH FINANCE</div>
+                </div>
+            </div>
+            <a href="index.html" class="back-to-home">
+                <svg class="back-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Home
+            </a>
+        </div>
+    </header>
+
+    <!-- Error Notification Box -->
+    <div class="error-notification-box" id="errorNotificationBox">
+        <div class="error-notification-header">
+            <h4>
+                <svg class="svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                </svg>
+                Please Fix These Errors
+            </h4>
+            <button class="close-error-btn" onclick="closeErrorBox()">&times;</button>
+        </div>
+        <div class="error-list" id="errorList">
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="page-title">
+            <h1>
+                <svg class="uganda-flag" viewBox="0 0 32 22" style="width: 40px; height: 28px;">
+                    <rect y="0" width="32" height="3.67" fill="#000"/>
+                    <rect y="3.67" width="32" height="3.67" fill="#FCDC04"/>
+                    <rect y="7.33" width="32" height="3.67" fill="#D90000"/>
+                    <rect y="11" width="32" height="3.67" fill="#000"/>
+                    <rect y="14.67" width="32" height="3.67" fill="#FCDC04"/>
+                    <rect y="18.33" width="32" height="3.67" fill="#D90000"/>
+                    <circle cx="16" cy="11" r="5" fill="#FFF"/>
+                    <path d="M16 7.5c0.8 0.5 1.3 1.5 1.3 2.5 0 0.8-0.3 1.5-0.8 2l0.5 1.5c0.2 0.5 0 0.8-0.5 0.8h-1c-0.5 0-0.7-0.3-0.5-0.8l0.5-1.5c-0.5-0.5-0.8-1.2-0.8-2 0-1 0.5-2 1.3-2.5z" fill="#000"/>
+                </svg>
+                Loan Application
+            </h1>
+            <p>Complete the form below to apply for your loan. All fields marked with <span style="color: var(--error-red);">*</span> are required.</p>
+        </div>
+
+        <!-- Progress Indicator -->
+        <div class="progress-indicator">
+            <div class="progress-step">
+                <div class="step-circle active" id="step1Circle">1</div>
+            </div>
+            <div class="step-line" id="line1"></div>
+            <div class="progress-step">
+                <div class="step-circle" id="step2Circle">2</div>
+            </div>
+            <div class="step-line" id="line2"></div>
+            <div class="progress-step">
+                <div class="step-circle" id="step3Circle">3</div>
+            </div>
+        </div>
+
+        <form id="loanApplicationForm" novalidate>
+            <!-- Section 1: Personal Information -->
+            <div class="form-section active" id="section1">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <svg class="section-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h2>Personal Information</h2>
+                        <p style="color: #666; font-size: 0.9rem;">Tell us about yourself</p>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>First Name <span class="required">*</span></label>
+                        <input type="text" id="firstName" placeholder="Enter your first name" required>
+                        <div class="field-error" id="firstNameError">Please enter your first name</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name <span class="required">*</span></label>
+                        <input type="text" id="lastName" placeholder="Enter your last name" required>
+                        <div class="field-error" id="lastNameError">Please enter your last name</div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Date of Birth <span class="required">*</span></label>
+                        <input type="date" id="dateOfBirth" required>
+                        <div class="field-error" id="dateOfBirthError">You must be at least 18 years old</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Gender <span class="required">*</span></label>
+                        <select id="gender" required>
+                            <option value="">Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <div class="field-error" id="genderError">Please select your gender</div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>National ID Number <span class="required">*</span></label>
+                        <input type="text" id="nationalId" placeholder="e.g., CM12345678ABCDE" maxlength="14" required>
+                        <div class="field-error" id="nationalIdError">Enter valid Ugandan National ID (14 characters)</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address <span class="required">*</span></label>
+                        <input type="email" id="email" placeholder="your.email@example.com" required>
+                        <div class="field-error" id="emailError">Please enter a valid email address</div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Phone Number <span class="required">*</span></label>
+                        <div class="phone-input-group">
+                            <div class="phone-prefix">
+                                <svg class="uganda-flag-sm" viewBox="0 0 24 16">
+                                    <rect y="0" width="24" height="2.67" fill="#000"/>
+                                    <rect y="2.67" width="24" height="2.67" fill="#FCDC04"/>
+                                    <rect y="5.33" width="24" height="2.67" fill="#D90000"/>
+                                    <rect y="8" width="24" height="2.67" fill="#000"/>
+                                    <rect y="10.67" width="24" height="2.67" fill="#FCDC04"/>
+                                    <rect y="13.33" width="24" height="2.67" fill="#D90000"/>
+                                    <circle cx="12" cy="8" r="3.5" fill="#FFF"/>
+                                    <path d="M12 5.5c0.6 0.4 1 1.1 1 1.9 0 0.6-0.2 1.1-0.6 1.5l0.4 1.1c0.1 0.4 0 0.6-0.4 0.6h-0.8c-0.4 0-0.5-0.2-0.4-0.6l0.4-1.1c-0.4-0.4-0.6-0.9-0.6-1.5 0-0.8 0.4-1.5 1-1.9z" fill="#000"/>
+                                </svg>
+                                <span>256</span>
+                            </div>
+                            <input type="tel" id="phoneNumber" class="phone-number-input" placeholder="7XX XXX XXX" maxlength="9" required>
+                        </div>
+                        <div class="field-error" id="phoneNumberError">Enter valid 9-digit phone number</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Alternative Phone</label>
+                        <div class="phone-input-group">
+                            <div class="phone-prefix">
+                                <svg class="uganda-flag-sm" viewBox="0 0 24 16">
+                                    <rect y="0" width="24" height="2.67" fill="#000"/>
+                                    <rect y="2.67" width="24" height="2.67" fill="#FCDC04"/>
+                                    <rect y="5.33" width="24" height="2.67" fill="#D90000"/>
+                                    <rect y="8" width="24" height="2.67" fill="#000"/>
+                                    <rect y="10.67" width="24" height="2.67" fill="#FCDC04"/>
+                                    <rect y="13.33" width="24" height="2.67" fill="#D90000"/>
+                                    <circle cx="12" cy="8" r="3.5" fill="#FFF"/>
+                                    <path d="M12 5.5c0.6 0.4 1 1.1 1 1.9 0 0.6-0.2 1.1-0.6 1.5l0.4 1.1c0.1 0.4 0 0.6-0.4 0.6h-0.8c-0.4 0-0.5-0.2-0.4-0.6l0.4-1.1c-0.4-0.4-0.6-0.9-0.6-1.5 0-0.8 0.4-1.5 1-1.9z" fill="#000"/>
+                                </svg>
+                                <span>256</span>
+                            </div>
+                            <input type="tel" id="altPhone" class="phone-number-input" placeholder="7XX XXX XXX" maxlength="9">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>District <span class="required">*</span></label>
+                        <select id="district" required>
+                            <option value="">Select District</option>
+                            <option value="Kampala">Kampala</option>
+                            <option value="Wakiso">Wakiso</option>
+                            <option value="Mukono">Mukono</option>
+                            <option value="Jinja">Jinja</option>
+                            <option value="Mbale">Mbale</option>
+                            <option value="Gulu">Gulu</option>
+                            <option value="Lira">Lira</option>
+                            <option value="Mbarara">Mbarara</option>
+                            <option value="Kabale">Kabale</option>
+                            <option value="Fort Portal">Fort Portal</option>
+                            <option value="Masaka">Masaka</option>
+                            <option value="Entebbe">Entebbe</option>
+                            <option value="Arua">Arua</option>
+                            <option value="Soroti">Soroti</option>
+                            <option value="Tororo">Tororo</option>
+                            <option value="Kasese">Kasese</option>
+                            <option value="Hoima">Hoima</option>
+                            <option value="Mityana">Mityana</option>
+                            <option value="Iganga">Iganga</option>
+                            <option value="Busia">Busia</option>
+                            <option value="Kitgum">Kitgum</option>
+                            <option value="Moroto">Moroto</option>
+                            <option value="Kabalore">Kabalore</option>
+                            <option value="Bushenyi">Bushenyi</option>
+                            <option value="Ntungamo">Ntungamo</option>
+                            <option value="Rukungiri">Rukungiri</option>
+                            <option value="Kisoro">Kisoro</option>
+                            <option value="Nebbi">Nebbi</option>
+                            <option value="Pallisa">Pallisa</option>
+                            <option value="Kamuli">Kamuli</option>
+                            <option value="Kumi">Kumi</option>
+                            <option value="Bugiri">Bugiri</option>
+                            <option value="Kayunga">Kayunga</option>
+                            <option value="Nakasongola">Nakasongola</option>
+                            <option value="Luwero">Luwero</option>
+                            <option value="Mpigi">Mpigi</option>
+                            <option value="Rakai">Rakai</option>
+                            <option value="Sembabule">Sembabule</option>
+                            <option value="Kalangala">Kalangala</option>
+                            <option value="Bundibugyo">Bundibugyo</option>
+                            <option value="Kabarole">Kabarole</option>
+                            <option value="Kyenjojo">Kyenjojo</option>
+                            <option value="Kibaale">Kibaale</option>
+                            <option value="Masindi">Masindi</option>
+                            <option value="Apac">Apac</option>
+                            <option value="Pader">Pader</option>
+                            <option value="Adjumani">Adjumani</option>
+                            <option value="Moyo">Moyo</option>
+                            <option value="Yumbe">Yumbe</option>
+                            <option value="Koboko">Koboko</option>
+                            <option value="Kapchorwa">Kapchorwa</option>
+                            <option value="Sironko">Sironko</option>
+                            <option value="Bududa">Bududa</option>
+                            <option value="Manafwa">Manafwa</option>
+                            <option value="Bukwa">Bukwa</option>
+                            <option value="Kween">Kween</option>
+                            <option value="Butaleja">Butaleja</option>
+                            <option value="Namutumba">Namutumba</option>
+                            <option value="Kaliro">Kaliro</option>
+                            <option value="Buyende">Buyende</option>
+                            <option value="Luuka">Luuka</option>
+                            <option value="Namayingo">Namayingo</option>
+                            <option value="Mayuge">Mayuge</option>
+                            <option value="Buikwe">Buikwe</option>
+                            <option value="Buvuma">Buvuma</option>
+                            <option value="Nakaseke">Nakaseke</option>
+                            <option value="Kyankwanzi">Kyankwanzi</option>
+                            <option value="Kiboga">Kiboga</option>
+                            <option value="Mubende">Mubende</option>
+                            <option value="Kakumiro">Kakumiro</option>
+                            <option value="Kagadi">Kagadi</option>
+                            <option value="Kiryandongo">Kiryandongo</option>
+                            <option value="Buliisa">Buliisa</option>
+                            <option value="Kibuube">Kibuube</option>
+                            <option value="Kikuube">Kikuube</option>
+                            <option value="Pakwach">Pakwach</option>
+                            <option value="Zombo">Zombo</option>
+                            <option value="Maracha">Maracha</option>
+                            <option value="Terego">Terego</option>
+                            <option value="Madi-Okollo">Madi-Okollo</option>
+                            <option value="Obongi">Obongi</option>
+                            <option value="Amuru">Amuru</option>
+                            <option value="Nwoya">Nwoya</option>
+                            <option value="Lamwo">Lamwo</option>
+                            <option value="Agago">Agago</option>
+                            <option value="Otuke">Otuke</option>
+                            <option value="Alebtong">Alebtong</option>
+                            <option value="Kole">Kole</option>
+                            <option value="Oyam">Oyam</option>
+                            <option value="Kwania">Kwania</option>
+                            <option value="Dokolo">Dokolo</option>
+                            <option value="Amolatar">Amolatar</option>
+                            <option value="Kaberamaido">Kaberamaido</option>
+                            <option value="Serere">Serere</option>
+                            <option value="Ngora">Ngora</option>
+                            <option value="Bukedea">Bukedea</option>
+                            <option value="Katakwi">Katakwi</option>
+                            <option value="Amuria">Amuria</option>
+                            <option value="Kapelebyong">Kapelebyong</option>
+                            <option value="Napak">Napak</option>
+                            <option value="Nakapiripirit">Nakapiripirit</option>
+                            <option value="Amudat">Amudat</option>
+                            <option value="Nabilatuk">Nabilatuk</option>
+                            <option value="Kotido">Kotido</option>
+                            <option value="Abim">Abim</option>
+                            <option value="Kaabong">Kaabong</option>
+                            <option value="Karenga">Karenga</option>
+                            <option value="Ibanda">Ibanda</option>
+                            <option value="Kamwenge">Kamwenge</option>
+                            <option value="Rubirizi">Rubirizi</option>
+                            <option value="Sheema">Sheema</option>
+                            <option value="Mitooma">Mitooma</option>
+                            <option value="Buhweju">Buhweju</option>
+                            <option value="Kanungu">Kanungu</option>
+                            <option value="Rubanda">Rubanda</option>
+                            <option value="Rukiga">Rukiga</option>
+                            <option value="Isingiro">Isingiro</option>
+                            <option value="Kiruhura">Kiruhura</option>
+                            <option value="Lyantonde">Lyantonde</option>
+                            <option value="Lwengo">Lwengo</option>
+                            <option value="Bukomansimbi">Bukomansimbi</option>
+                            <option value="Kalungu">Kalungu</option>
+                            <option value="Gomba">Gomba</option>
+                            <option value="Butambala">Butambala</option>
+                            <option value="Kassanda">Kassanda</option>
+                        </select>
+                        <div class="field-error" id="districtError">Please select your district</div>
+                    </div>
+                    <div class="form-group">
+                        <label>City/Town <span class="required">*</span></label>
+                        <input type="text" id="city" placeholder="Enter your city or town" required>
+                        <div class="field-error" id="cityError">Please enter your city or town</div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Physical Address <span class="required">*</span></label>
+                        <input type="text" id="address" placeholder="Street name, Building, etc." required>
+                        <div class="field-error" id="addressError">Please enter your physical address</div>
+                    </div>
+                </div>
+
+                <div class="form-navigation">
+                    <button type="button" class="btn btn-next" onclick="nextSection(1)">
+                        Continue
+                        <svg class="svg-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Section 2: Business Information -->
+            <div class="form-section" id="section2">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <svg class="section-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h2>Business & Employment Information</h2>
+                        <p style="color: #666; font-size: 0.9rem;">Tell us about your income source</p>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Employment Status <span class="required">*</span></label>
+                        <select id="employmentStatus" required>
+                            <option value="">Select Status</option>
+                            <option value="employed">Employed</option>
+                            <option value="self-employed">Self-Employed</option>
+                            <option value="business-owner">Business Owner</option>
+                            <option value="contractor">Contractor/Freelancer</option>
+                            <option value="retired">Retired</option>
+                            <option value="student">Student</option>
+                        </select>
+                        <div class="field-error" id="employmentStatusError">Please select your employment status</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Employer/Business Name <span class="required">*</span></label>
+                        <input type="text" id="employerName" placeholder="Enter company or business name" required>
+                        <div class="field-error" id="employerNameError">Please enter your employer or business name</div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Industry/Sector <span class="required">*</span></label>
+                        <select id="industry" required>
+                            <option value="">Select Industry</option>
+                            <option value="agriculture">Agriculture</option>
+                            <option value="banking">Banking & Finance</option>
+                            <option value="construction">Construction</option>
+                            <option value="education">Education</option>
+                            <option value="healthcare">Healthcare</option>
+                            <option value="hospitality">Hospitality & Tourism</option>
+                            <option value="manufacturing">Manufacturing</option>
+                            <option value="retail">Retail & Trade</option>
+                            <option value="technology">Technology & IT</option>
+                            <option value="transportation">Transportation</option>
+                            <option value="telecom">Telecommunications</option>
+                            <option value="government">Government</option>
+                            <option value="ngo">NGO/Non-Profit</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <div class="field-error" id="industryError">Please select your industry</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Monthly Income (UGX) <span class="required">*</span></label>
+                        <input type="number" id="monthlyIncome" placeholder="e.g., 1500000" required>
+                        <div class="field-error" id="monthlyIncomeError">Please enter your monthly income</div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Years at Current Job/Business <span class="required">*</span></label>
+                        <select id="yearsEmployed" required>
+                            <option value="">Select Duration</option>
+                            <option value="less-than-1">Less than 1 year</option>
+                            <option value="1-2">1-2 years</option>
+                            <option value="2-5">2-5 years</option>
+                            <option value="5-10">5-10 years</option>
+                            <option value="more-than-10">More than 10 years</option>
+                        </select>
+                        <div class="field-error" id="yearsEmployedError">Please select duration</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Work Phone</label>
+                        <div class="phone-input-group">
+                            <div class="phone-prefix">
+                                <svg class="uganda-flag-sm" viewBox="0 0 24 16">
+                                    <rect y="0" width="24" height="2.67" fill="#000"/>
+                                    <rect y="2.67" width="24" height="2.67" fill="#FCDC04"/>
+                                    <rect y="5.33" width="24" height="2.67" fill="#D90000"/>
+                                    <rect y="8" width="24" height="2.67" fill="#000"/>
+                                    <rect y="10.67" width="24" height="2.67" fill="#FCDC04"/>
+                                    <rect y="13.33" width="24" height="2.67" fill="#D90000"/>
+                                    <circle cx="12" cy="8" r="3.5" fill="#FFF"/>
+                                    <path d="M12 5.5c0.6 0.4 1 1.1 1 1.9 0 0.6-0.2 1.1-0.6 1.5l0.4 1.1c0.1 0.4 0 0.6-0.4 0.6h-0.8c-0.4 0-0.5-0.2-0.4-0.6l0.4-1.1c-0.4-0.4-0.6-0.9-0.6-1.5 0-0.8 0.4-1.5 1-1.9z" fill="#000"/>
+                                </svg>
+                                <span>256</span>
+                            </div>
+                            <input type="tel" id="workPhone" class="phone-number-input" placeholder="7XX XXX XXX" maxlength="9">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Work Address</label>
+                        <input type="text" id="workAddress" placeholder="Enter workplace address">
+                    </div>
+                </div>
+
+                <!-- Loan Amount Section -->
+                <div class="section-header" style="margin-top: 2rem;">
+                    <div class="section-icon">
+                        <svg class="section-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="1" x2="12" y2="23"/>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h2>Loan Details</h2>
+                        <p style="color: #666; font-size: 0.9rem;">How much do you need?</p>
+                    </div>
+                </div>
+
+                <div class="loan-slider-container">
+                    <div class="loan-amount-display">
+                        <div class="loan-amount-value">UGX <span id="loanAmountValue">3,000,000</span></div>
+                        <div class="loan-amount-label">Requested Loan Amount</div>
+                    </div>
+                    <input type="range" class="loan-slider" id="loanAmountSlider" min="419010" max="5586797" value="3000000" step="10000">
+                    <div class="loan-range-labels">
+                        <span>UGX 419,010</span>
+                        <span>UGX 5,586,797</span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Loan Purpose <span class="required">*</span></label>
+                        <select id="loanPurpose" required>
+                            <option value="">Select Purpose</option>
+                            <option value="business-expansion">Business Expansion</option>
+                            <option value="inventory">Inventory/Stock Purchase</option>
+                            <option value="equipment">Equipment Purchase</option>
+                            <option value="education">Education Fees</option>
+                            <option value="medical">Medical Expenses</option>
+                            <option value="home-improvement">Home Improvement</option>
+                            <option value="debt-consolidation">Debt Consolidation</option>
+                            <option value="emergency">Emergency Expenses</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <div class="field-error" id="loanPurposeError">Please select loan purpose</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Repayment Period <span class="required">*</span></label>
+                        <select id="repaymentPeriod" required>
+                            <option value="">Select Period</option>
+                            <option value="1">1 Month</option>
+                            <option value="2">2 Months</option>
+                            <option value="3">3 Months</option>
+                            <option value="6">6 Months</option>
+                            <option value="9">9 Months</option>
+                            <option value="12">12 Months</option>
+                        </select>
+                        <div class="field-error" id="repaymentPeriodError">Please select repayment period</div>
+                    </div>
+                </div>
+
+                <!-- Loan Receipt Section -->
+                <div class="network-provider-section">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <svg class="section-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                                <line x1="1" y1="10" x2="23" y2="10"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h2>Loan Receipt Details</h2>
+                            <p style="color: #666; font-size: 0.9rem;">Where should we send your loan?</p>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Network Provider <span class="required">*</span></label>
+                            <select id="networkProvider" required>
+                                <option value="">Select Network Provider</option>
+                                <option value="airtel">Airtel Money</option>
+                                <option value="mtn">MTN Mobile Money</option>
+                            </select>
+                            <div class="field-error" id="networkProviderError">Please select a network provider</div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Mobile Money Number <span class="required">*</span></label>
+                            <div class="phone-input-group" id="momoPhoneGroup">
+                                <div class="phone-prefix">
+                                    <svg class="uganda-flag-sm" viewBox="0 0 24 16">
+                                        <rect y="0" width="24" height="2.67" fill="#000"/>
+                                        <rect y="2.67" width="24" height="2.67" fill="#FCDC04"/>
+                                        <rect y="5.33" width="24" height="2.67" fill="#D90000"/>
+                                        <rect y="8" width="24" height="2.67" fill="#000"/>
+                                        <rect y="10.67" width="24" height="2.67" fill="#FCDC04"/>
+                                        <rect y="13.33" width="24" height="2.67" fill="#D90000"/>
+                                        <circle cx="12" cy="8" r="3.5" fill="#FFF"/>
+                                        <path d="M12 5.5c0.6 0.4 1 1.1 1 1.9 0 0.6-0.2 1.1-0.6 1.5l0.4 1.1c0.1 0.4 0 0.6-0.4 0.6h-0.8c-0.4 0-0.5-0.2-0.4-0.6l0.4-1.1c-0.4-0.4-0.6-0.9-0.6-1.5 0-0.8 0.4-1.5 1-1.9z" fill="#000"/>
+                                    </svg>
+                                    <span>256</span>
+                                </div>
+                                <input type="tel" id="momoNumber" class="phone-number-input" placeholder="Enter 9 digits (e.g., 7XXXXXXXX)" maxlength="9" required>
+                            </div>
+                            <div class="phone-validation-status" id="momoValidationStatus"></div>
+                            <div class="field-error" id="momoNumberError">Enter a valid 9-digit phone number starting with 7</div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Confirm Mobile Money Number <span class="required">*</span></label>
+                            <div class="phone-input-group" id="confirmMomoPhoneGroup">
+                                <div class="phone-prefix">
+                                    <svg class="uganda-flag-sm" viewBox="0 0 24 16">
+                                        <rect y="0" width="24" height="2.67" fill="#000"/>
+                                        <rect y="2.67" width="24" height="2.67" fill="#FCDC04"/>
+                                        <rect y="5.33" width="24" height="2.67" fill="#D90000"/>
+                                        <rect y="8" width="24" height="2.67" fill="#000"/>
+                                        <rect y="10.67" width="24" height="2.67" fill="#FCDC04"/>
+                                        <rect y="13.33" width="24" height="2.67" fill="#D90000"/>
+                                        <circle cx="12" cy="8" r="3.5" fill="#FFF"/>
+                                        <path d="M12 5.5c0.6 0.4 1 1.1 1 1.9 0 0.6-0.2 1.1-0.6 1.5l0.4 1.1c0.1 0.4 0 0.6-0.4 0.6h-0.8c-0.4 0-0.5-0.2-0.4-0.6l0.4-1.1c-0.4-0.4-0.6-0.9-0.6-1.5 0-0.8 0.4-1.5 1-1.9z" fill="#000"/>
+                                    </svg>
+                                    <span>256</span>
+                                </div>
+                                <input type="tel" id="confirmMomoNumber" class="phone-number-input" placeholder="Re-enter number to confirm" maxlength="9" required>
+                            </div>
+                            <div class="phone-validation-status" id="confirmMomoValidationStatus"></div>
+                            <div class="field-error" id="confirmMomoNumberError">Phone numbers do not match</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-navigation">
+                    <button type="button" class="btn btn-prev" onclick="prevSection(2)">
+                        <svg class="svg-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 12H5M12 19l-7-7 7-7"/>
+                        </svg>
+                        Previous
+                    </button>
+                    <button type="button" class="btn btn-next" onclick="nextSection(2)">
+                        Continue
+                        <svg class="svg-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Section 3: Confirmation -->
+            <div class="form-section" id="section3">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <svg class="section-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h2>Terms & Confirmation</h2>
+                        <p style="color: #666; font-size: 0.9rem;">Review and accept the terms</p>
+                    </div>
+                </div>
+
+                <!-- PDF Download Section -->
+                <div class="pdf-download-section">
+                    <div class="pdf-info">
+                        <div class="pdf-icon-wrapper">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                                <polyline points="10 9 9 9 8 9"/>
+                            </svg>
+                        </div>
+                        <div class="pdf-info-text">
+                            <h4>Loan Terms & Conditions</h4>
+                            <p>Download the full terms document for your records</p>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-download-pdf" onclick="downloadPDF()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        Download PDF
+                    </button>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="termsAgree" required>
+                    <label for="termsAgree">
+                        I have read and agree to the <a href="index.html" onclick="return false;">Terms and Conditions</a> and <a href="index.html" onclick="return false;">Privacy Policy</a> of Swift Loan UG. <span class="required">*</span>
+                    </label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="dataConsent" required>
+                    <label for="dataConsent">
+                        I consent to Swift Loan UG collecting, processing, and verifying my personal and financial information for loan assessment purposes. <span class="required">*</span>
+                    </label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="crbConsent" required>
+                    <label for="crbConsent">
+                        I authorize Swift Loan UG to check my credit history with Credit Reference Bureaus and report my loan status. <span class="required">*</span>
+                    </label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="accuracyConfirm" required>
+                    <label for="accuracyConfirm">
+                        I confirm that all information provided in this application is true, accurate, and complete to the best of my knowledge. <span class="required">*</span>
+                    </label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="marketingConsent">
+                    <label for="marketingConsent">
+                        I agree to receive promotional messages and updates from Swift Loan UG via SMS and email. (Optional)
+                    </label>
+                </div>
+
+                <div class="form-navigation">
+                    <button type="button" class="btn btn-prev" onclick="prevSection(3)">
+                        <svg class="svg-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 12H5M12 19l-7-7 7-7"/>
+                        </svg>
+                        Previous
+                    </button>
+                    <button type="submit" class="btn btn-submit" id="submitBtn">
+                        Submit Application
+                        <svg class="svg-icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </main>
+
+    <!-- Processing Popup -->
+    <div class="popup-overlay" id="processingPopup">
+        <div class="processing-popup">
+            <div id="processingContent">
+                <h3 class="processing-title">Processing Your Application...</h3>
+                <div class="info-display-container" id="infoDisplayContainer">
+                </div>
+            </div>
+
+            <div class="loading-container" id="loadingContainer">
+                <div class="circular-progress" id="circularProgress">
+                    <svg width="120" height="120">
+                        <circle class="progress-bg" cx="60" cy="60" r="50"/>
+                        <circle class="progress-bar" id="progressBar" cx="60" cy="60" r="50"/>
+                    </svg>
+                    <div class="progress-value" id="progressValue">0%</div>
+                </div>
+                <div class="bouncing-balls">
+                    <div class="bouncing-ball"></div>
+                    <div class="bouncing-ball"></div>
+                    <div class="bouncing-ball"></div>
+                </div>
+                <p class="loading-text" id="loadingText">Analyzing your information...</p>
+            </div>
+
+            <div class="success-container" id="successContainer">
+                <div class="success-icon">
+                    <svg class="checkmark" viewBox="0 0 52 52">
+                        <path class="checkmark-path" d="M14 27l7 7 16-16"/>
+                    </svg>
+                </div>
+                <h3 class="success-title">Application Approved!</h3>
+                <p class="success-message">Congratulations! Your loan application has been approved.</p>
+                <div class="loan-offers-count">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                        <line x1="9" y1="9" x2="9.01" y2="9"/>
+                        <line x1="15" y1="9" x2="15.01" y2="9"/>
+                    </svg>
+                    7 Loan Offers Available!
+                </div>
+                <p style="margin-top: 1rem; color: #666;">Redirecting to your offers...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html">About Us</a></li>
+                        <li><a href="eligibility.html">Apply for Loan</a></li>
+                        <li><a href="index.html">Loan Calculator</a></li>
+                        <li><a href="index.html">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Privacy Policy</a></li>
+                        <li><a href="index.html">Terms & Conditions</a></li>
+                        <li><a href="index.html">Loan Rules</a></li>
+                        <li><a href="index.html">Cookie Settings</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Information</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <svg class="footer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            <a href="mailto:info@swiftloan.ug">info@swiftloan.ug</a>
+                        </div>
+                        <div class="contact-item">
+                            <svg class="footer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                            <a href="tel:+256700000000">+256 700 000 000</a>
+                        </div>
+                        <div class="contact-item">
+                            <svg class="footer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                            </svg>
+                            <a href="https://wa.me/256700000000">WhatsApp: +256 700 000 000</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Swift Loan UG. All rights reserved. Licensed by Bank of Uganda.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Check if user already applied
+        document.addEventListener('DOMContentLoaded', function() {
+            const existingApplication = localStorage.getItem('swiftloan_personal_details');
+            if (existingApplication) {
+                window.location.href = 'offers.html';
+                return;
+            }
+        });
+
+        let currentSection = 1;
+        const totalSections = 3;
+
+        // Loan Amount Slider
+        const loanSlider = document.getElementById('loanAmountSlider');
+        const loanAmountValue = document.getElementById('loanAmountValue');
+
+        loanSlider.addEventListener('input', function() {
+            const value = parseInt(this.value);
+            loanAmountValue.textContent = value.toLocaleString();
+            
+            const percentage = ((value - 419010) / (5586797 - 419010)) * 100;
+            this.style.background = `linear-gradient(to right, var(--primary-orange) ${percentage}%, #ddd ${percentage}%)`;
+        });
+
+        // Initialize slider background
+        loanSlider.dispatchEvent(new Event('input'));
+
+        // PDF Download Function
+        function downloadPDF() {
+            // Create a simple PDF-like content
+            const pdfContent = `
+SWIFT LOAN UG - TERMS AND CONDITIONS
+=====================================
+
+1. LOAN TERMS
+- Minimum Loan Amount: UGX 419,010
+- Maximum Loan Amount: UGX 5,586,797
+- Repayment Period: 1-12 Months
+- Interest Rate: As per agreed terms
+
+2. ELIGIBILITY REQUIREMENTS
+- Must be 18 years or older
+- Valid Ugandan National ID
+- Active mobile money account
+- Verifiable income source
+
+3. REPAYMENT TERMS
+- Monthly installments via Mobile Money
+- Early repayment allowed without penalties
+- Late payment fees may apply
+
+4. DATA PROTECTION
+- Your information is encrypted and secure
+- We comply with Uganda's data protection laws
+
+For questions, contact: info@swiftloan.ug
+Phone: +256 700 000 000
+
+Licensed by Bank of Uganda
+© 2025 Swift Loan UG
+            `;
+            
+            const blob = new Blob([pdfContent], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'SwiftLoan_UG_Terms_and_Conditions.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        // Live Validation Functions
+        function validateField(fieldId, condition, errorId) {
+            const field = document.getElementById(fieldId);
+            const error = document.getElementById(errorId);
+            
+            if (condition) {
+                field.classList.remove('invalid');
+                field.classList.add('valid');
+                error.classList.remove('show');
+                return true;
+            } else {
+                field.classList.remove('valid');
+                field.classList.add('invalid');
+                error.classList.add('show');
+                return false;
+            }
+        }
+
+        // Personal Info Validations
+        document.getElementById('firstName').addEventListener('blur', function() {
+            validateField('firstName', this.value.trim().length >= 2, 'firstNameError');
+        });
+
+        document.getElementById('lastName').addEventListener('blur', function() {
+            validateField('lastName', this.value.trim().length >= 2, 'lastNameError');
+        });
+
+        document.getElementById('dateOfBirth').addEventListener('change', function() {
+            const dob = new Date(this.value);
+            const today = new Date();
+            const age = Math.floor((today - dob) / (365.25 * 24 * 60 * 60 * 1000));
+            validateField('dateOfBirth', age >= 18, 'dateOfBirthError');
+        });
+
+        document.getElementById('gender').addEventListener('change', function() {
+            validateField('gender', this.value !== '', 'genderError');
+        });
+
+        document.getElementById('nationalId').addEventListener('blur', function() {
+            const idRegex = /^[A-Z]{2}\d{8}[A-Z]{4,5}$/i;
+            validateField('nationalId', idRegex.test(this.value.trim()) || this.value.trim().length === 14, 'nationalIdError');
+        });
+
+        document.getElementById('email').addEventListener('blur', function() {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            validateField('email', emailRegex.test(this.value.trim()), 'emailError');
+        });
+
+        document.getElementById('phoneNumber').addEventListener('blur', function() {
+            const phoneRegex = /^[7][0-9]{8}$/;
+            validateField('phoneNumber', phoneRegex.test(this.value.trim()), 'phoneNumberError');
+        });
+
+        document.getElementById('district').addEventListener('change', function() {
+            validateField('district', this.value !== '', 'districtError');
+        });
+
+        document.getElementById('city').addEventListener('blur', function() {
+            validateField('city', this.value.trim().length >= 2, 'cityError');
+        });
+
+        document.getElementById('address').addEventListener('blur', function() {
+            validateField('address', this.value.trim().length >= 5, 'addressError');
+        });
+
+        // Business Info Validations
+        document.getElementById('employmentStatus').addEventListener('change', function() {
+            validateField('employmentStatus', this.value !== '', 'employmentStatusError');
+        });
+
+        document.getElementById('employerName').addEventListener('blur', function() {
+            validateField('employerName', this.value.trim().length >= 2, 'employerNameError');
+        });
+
+        document.getElementById('industry').addEventListener('change', function() {
+            validateField('industry', this.value !== '', 'industryError');
+        });
+
+        document.getElementById('monthlyIncome').addEventListener('blur', function() {
+            validateField('monthlyIncome', parseInt(this.value) >= 100000, 'monthlyIncomeError');
+        });
+
+        document.getElementById('yearsEmployed').addEventListener('change', function() {
+            validateField('yearsEmployed', this.value !== '', 'yearsEmployedError');
+        });
+
+        document.getElementById('loanPurpose').addEventListener('change', function() {
+            validateField('loanPurpose', this.value !== '', 'loanPurposeError');
+        });
+
+        document.getElementById('repaymentPeriod').addEventListener('change', function() {
+            validateField('repaymentPeriod', this.value !== '', 'repaymentPeriodError');
+        });
+
+        // Network Provider Validation
+        document.getElementById('networkProvider').addEventListener('change', function() {
+            validateField('networkProvider', this.value !== '', 'networkProviderError');
+        });
+
+        // Mobile Money Number Live Validation
+        document.getElementById('momoNumber').addEventListener('input', function() {
+            const value = this.value.replace(/\D/g, '');
+            this.value = value;
+            
+            const statusEl = document.getElementById('momoValidationStatus');
+            const phoneRegex = /^[7][0-9]{8}$/;
+            
+            if (value.length === 0) {
+                statusEl.innerHTML = '';
+                statusEl.className = 'phone-validation-status';
+                document.getElementById('momoPhoneGroup').style.borderColor = '#ddd';
+            } else if (value.length < 9) {
+                statusEl.innerHTML = `
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="12" y1="8" x2="12" y2="12"/>
+                        <line x1="12" y1="16" x2="12.01" y2="16"/>
+                    </svg>
+                    <span>Enter ${9 - value.length} more digit(s)</span>
+                `;
+                statusEl.className = 'phone-validation-status invalid';
+                document.getElementById('momoPhoneGroup').style.borderColor = 'var(--error-red)';
+            } else if (!phoneRegex.test(value)) {
+                statusEl.innerHTML = `
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="15" y1="9" x2="9" y2="15"/>
+                        <line x1="9" y1="9" x2="15" y2="15"/>
+                    </svg>
+                    <span>Number must start with 7</span>
+                `;
+                statusEl.className = 'phone-validation-status invalid';
+                document.getElementById('momoPhoneGroup').style.borderColor = 'var(--error-red)';
+            } else {
+                statusEl.innerHTML = `
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                        <polyline points="22 4 12 14.01 9 11.01"/>
+                    </svg>
+                    <span>Valid number: +256${value}</span>
+                `;
+                statusEl.className = 'phone-validation-status valid';
+                document.getElementById('momoPhoneGroup').style.borderColor = 'var(--success-green)';
+            }
+            
+            // Also validate confirm field if it has value
+            const confirmValue = document.getElementById('confirmMomoNumber').value;
+            if (confirmValue.length > 0) {
+                validateConfirmMomo();
+            }
+        });
+
+        // Confirm Mobile Money Number Validation
+        function validateConfirmMomo() {
+            const momoNumber = document.getElementById('momoNumber').value;
+            const confirmNumber = document.getElementById('confirmMomoNumber').value;
+            const statusEl = document.getElementById('confirmMomoValidationStatus');
+            
+            if (confirmNumber.length === 0) {
+                statusEl.innerHTML = '';
+                statusEl.className = 'phone-validation-status';
+                document.getElementById('confirmMomoPhoneGroup').style.borderColor = '#ddd';
+            } else if (confirmNumber !== momoNumber) {
+                statusEl.innerHTML = `
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="15" y1="9" x2="9" y2="15"/>
+                        <line x1="9" y1="9" x2="15" y2="15"/>
+                    </svg>
+                    <span>Numbers do not match</span>
+                `;
+                statusEl.className = 'phone-validation-status invalid';
+                document.getElementById('confirmMomoPhoneGroup').style.borderColor = 'var(--error-red)';
+            } else {
+                statusEl.innerHTML = `
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                        <polyline points="22 4 12 14.01 9 11.01"/>
+                    </svg>
+                    <span>Numbers match!</span>
+                `;
+                statusEl.className = 'phone-validation-status valid';
+                document.getElementById('confirmMomoPhoneGroup').style.borderColor = 'var(--success-green)';
+            }
+        }
+
+        document.getElementById('confirmMomoNumber').addEventListener('input', function() {
+            const value = this.value.replace(/\D/g, '');
+            this.value = value;
+            validateConfirmMomo();
+        });
+
+        // Error Box Functions
+        function showErrors(errors) {
+            const errorBox = document.getElementById('errorNotificationBox');
+            const errorList = document.getElementById('errorList');
+            
+            errorList.innerHTML = errors.map(error => `
+                <div class="error-item">
+                    <svg class="error-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="15" y1="9" x2="9" y2="15"/>
+                        <line x1="9" y1="9" x2="15" y2="15"/>
+                    </svg>
+                    <span>${error}</span>
+                </div>
+            `).join('');
+            
+            errorBox.classList.add('active');
+        }
+
+        function closeErrorBox() {
+            document.getElementById('errorNotificationBox').classList.remove('active');
+        }
+
+        // Section Navigation
+        function validateSection(sectionNum) {
+            const errors = [];
+            
+            if (sectionNum === 1) {
+                if (!document.getElementById('firstName').value.trim()) errors.push('First Name is required');
+                if (!document.getElementById('lastName').value.trim()) errors.push('Last Name is required');
+                
+                const dob = new Date(document.getElementById('dateOfBirth').value);
+                const today = new Date();
+                const age = Math.floor((today - dob) / (365.25 * 24 * 60 * 60 * 1000));
+                if (!document.getElementById('dateOfBirth').value || age < 18) errors.push('You must be at least 18 years old');
+                
+                if (!document.getElementById('gender').value) errors.push('Gender is required');
+                
+                const nationalId = document.getElementById('nationalId').value.trim();
+                if (!nationalId || nationalId.length !== 14) errors.push('Valid National ID (14 characters) is required');
+                
+                const email = document.getElementById('email').value.trim();
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) errors.push('Valid email address is required');
+                
+                const phone = document.getElementById('phoneNumber').value.trim();
+                if (!/^[7][0-9]{8}$/.test(phone)) errors.push('Valid 9-digit phone number is required');
+                
+                if (!document.getElementById('district').value) errors.push('District is required');
+                if (!document.getElementById('city').value.trim()) errors.push('City/Town is required');
+                if (!document.getElementById('address').value.trim()) errors.push('Physical address is required');
+            }
+            
+            if (sectionNum === 2) {
+                if (!document.getElementById('employmentStatus').value) errors.push('Employment status is required');
+                if (!document.getElementById('employerName').value.trim()) errors.push('Employer/Business name is required');
+                if (!document.getElementById('industry').value) errors.push('Industry/Sector is required');
+                if (!document.getElementById('monthlyIncome').value) errors.push('Monthly income is required');
+                if (!document.getElementById('yearsEmployed').value) errors.push('Years employed is required');
+                if (!document.getElementById('loanPurpose').value) errors.push('Loan purpose is required');
+                if (!document.getElementById('repaymentPeriod').value) errors.push('Repayment period is required');
+                
+                // Mobile Money Validation
+                if (!document.getElementById('networkProvider').value) errors.push('Network provider is required');
+                
+                const momoNumber = document.getElementById('momoNumber').value.trim();
+                const phoneRegex = /^[7][0-9]{8}$/;
+                if (!phoneRegex.test(momoNumber)) errors.push('Valid 9-digit mobile money number starting with 7 is required');
+                
+                const confirmMomo = document.getElementById('confirmMomoNumber').value.trim();
+                if (momoNumber !== confirmMomo) errors.push('Mobile money numbers do not match');
+            }
+            
+            if (sectionNum === 3) {
+                if (!document.getElementById('termsAgree').checked) errors.push('You must accept Terms and Conditions');
+                if (!document.getElementById('dataConsent').checked) errors.push('Data processing consent is required');
+                if (!document.getElementById('crbConsent').checked) errors.push('Credit check authorization is required');
+                if (!document.getElementById('accuracyConfirm').checked) errors.push('Information accuracy confirmation is required');
+            }
+            
+            return errors;
+        }
+
+        function updateProgressIndicator(section) {
+            for (let i = 1; i <= totalSections; i++) {
+                const circle = document.getElementById(`step${i}Circle`);
+                
+                circle.classList.remove('active', 'completed');
+                
+                if (i < section) {
+                    circle.classList.add('completed');
+                    circle.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>';
+                } else if (i === section) {
+                    circle.classList.add('active');
+                    circle.innerHTML = i;
+                } else {
+                    circle.innerHTML = i;
+                }
+            }
+            
+            for (let i = 1; i < totalSections; i++) {
+                const line = document.getElementById(`line${i}`);
+                if (i < section) {
+                    line.classList.add('completed');
+                } else {
+                    line.classList.remove('completed');
+                }
+            }
+        }
+
+        function nextSection(current) {
+            const errors = validateSection(current);
+            
+            if (errors.length > 0) {
+                showErrors(errors);
+                return;
+            }
+            
+            closeErrorBox();
+            document.getElementById(`section${current}`).classList.remove('active');
+            document.getElementById(`section${current + 1}`).classList.add('active');
+            currentSection = current + 1;
+            updateProgressIndicator(currentSection);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function prevSection(current) {
+            closeErrorBox();
+            document.getElementById(`section${current}`).classList.remove('active');
+            document.getElementById(`section${current - 1}`).classList.add('active');
+            currentSection = current - 1;
+            updateProgressIndicator(currentSection);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Form Submission
+        document.getElementById('loanApplicationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const errors = validateSection(3);
+            if (errors.length > 0) {
+                showErrors(errors);
+                return;
+            }
+            
+            closeErrorBox();
+            startProcessing();
+        });
+
+        function startProcessing() {
+            const popup = document.getElementById('processingPopup');
+            const infoContainer = document.getElementById('infoDisplayContainer');
+            const processingContent = document.getElementById('processingContent');
+            const loadingContainer = document.getElementById('loadingContainer');
+            const successContainer = document.getElementById('successContainer');
+            
+            popup.classList.add('active');
+            
+            // Collect user data
+            const userData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                dateOfBirth: document.getElementById('dateOfBirth').value,
+                gender: document.getElementById('gender').value,
+                nationalId: document.getElementById('nationalId').value,
+                email: document.getElementById('email').value,
+                phoneNumber: '+256' + document.getElementById('phoneNumber').value,
+                altPhone: document.getElementById('altPhone').value ? '+256' + document.getElementById('altPhone').value : '',
+                district: document.getElementById('district').value,
+                city: document.getElementById('city').value,
+                address: document.getElementById('address').value,
+                employmentStatus: document.getElementById('employmentStatus').value,
+                employerName: document.getElementById('employerName').value,
+                industry: document.getElementById('industry').value,
+                monthlyIncome: document.getElementById('monthlyIncome').value,
+                yearsEmployed: document.getElementById('yearsEmployed').value,
+                workPhone: document.getElementById('workPhone').value ? '+256' + document.getElementById('workPhone').value : '',
+                workAddress: document.getElementById('workAddress').value,
+                loanAmount: document.getElementById('loanAmountSlider').value,
+                loanPurpose: document.getElementById('loanPurpose').value,
+                repaymentPeriod: document.getElementById('repaymentPeriod').value,
+                networkProvider: document.getElementById('networkProvider').value,
+                momoNumber: '+256' + document.getElementById('momoNumber').value,
+                marketingConsent: document.getElementById('marketingConsent').checked,
+                applicationDate: new Date().toISOString()
+            };
+            
+            // Display items to show
+            const displayItems = [
+                { label: 'Applicant Name', value: `${userData.firstName} ${userData.lastName}` },
+                { label: 'National ID', value: userData.nationalId },
+                { label: 'Phone Number', value: userData.phoneNumber },
+                { label: 'Location', value: `${userData.city}, ${userData.district}` },
+                { label: 'Employment', value: userData.employerName },
+                { label: 'Monthly Income', value: `UGX ${parseInt(userData.monthlyIncome).toLocaleString()}` },
+                { label: 'Requested Amount', value: `UGX ${parseInt(userData.loanAmount).toLocaleString()}` },
+                { label: 'Repayment Period', value: `${userData.repaymentPeriod} Month(s)` }
+            ];
+            
+            let index = 0;
+            
+            function showNextItem() {
+                if (index < displayItems.length) {
+                    infoContainer.innerHTML = `
+                        <div class="info-item">
+                            <div class="info-label">${displayItems[index].label}</div>
+                            <div class="info-value">${displayItems[index].value}</div>
+                        </div>
+                    `;
+                    index++;
+                    setTimeout(showNextItem, 2000);
+                } else {
+                    // Show loading with circular progress
+                    processingContent.style.display = 'none';
+                    loadingContainer.classList.add('active');
+                    
+                    // Animate circular progress bar
+                    const progressBar = document.getElementById('progressBar');
+                    const progressValue = document.getElementById('progressValue');
+                    const loadingText = document.getElementById('loadingText');
+                    let progress = 0;
+                    const circumference = 2 * Math.PI * 50; // r=50
+                    
+                    const loadingTexts = [
+                        'Analyzing your information...',
+                        'Verifying your details...',
+                        'Checking credit score...',
+                        'Processing application...',
+                        'Almost done...'
+                    ];
+                    
+                    const progressInterval = setInterval(() => {
+                        progress += 2;
+                        if (progress > 100) progress = 100;
+                        
+                        const offset = circumference - (progress / 100) * circumference;
+                        progressBar.style.strokeDashoffset = offset;
+                        progressValue.textContent = progress + '%';
+                        
+                        // Update loading text at certain percentages
+                        if (progress === 20) loadingText.textContent = loadingTexts[1];
+                        else if (progress === 40) loadingText.textContent = loadingTexts[2];
+                        else if (progress === 60) loadingText.textContent = loadingTexts[3];
+                        else if (progress === 80) loadingText.textContent = loadingTexts[4];
+                        
+                        if (progress >= 100) {
+                            clearInterval(progressInterval);
+                            
+                            // Save to localStorage
+                            localStorage.setItem('swiftloan_personal_details', JSON.stringify(userData));
+                            
+                            // Show success after a brief delay
+                            setTimeout(() => {
+                                loadingContainer.classList.remove('active');
+                                successContainer.classList.add('active');
+                                
+                                // Redirect after delay
+                                setTimeout(() => {
+                                    window.location.href = 'offers.html';
+                                }, 3000);
+                            }, 500);
+                        }
+                    }, 60);
+                }
+            }
+            
+            showNextItem();
+        }
+    </script>
+</body>
+</html>
