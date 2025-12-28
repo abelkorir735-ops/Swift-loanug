@@ -494,23 +494,84 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Hero Section */
+        /* Hero Section with Carousel */
         .hero {
-            background: linear-gradient(135deg, rgba(0,31,92,0.85) 0%, rgba(0,53,128,0.85) 100%), 
-                        url('Swift hero.bg');
-            background-size: cover;
-            background-position: center;
             padding: 5rem 5%;
             color: var(--white);
             min-height: 500px;
             display: flex;
             align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-attachment: fixed;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,31,92,0.7) 0%, rgba(0,53,128,0.7) 100%);
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+
+        .dot.active {
+            background: var(--white);
+            width: 30px;
+            border-radius: 6px;
         }
 
         .hero-content {
             max-width: 1200px;
             margin: 0 auto;
             width: 100%;
+            position: relative;
+            z-index: 2;
         }
 
         .hero h1 {
@@ -530,6 +591,70 @@
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
+        }
+
+        /* Loan Photos Gallery Section */
+        .loan-gallery {
+            padding: 4rem 5%;
+            background: var(--light-gray);
+        }
+
+        .gallery-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-title p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .gallery-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .gallery-item-content {
+            padding: 1.5rem;
+            background: var(--white);
+        }
+
+        .gallery-item h3 {
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .gallery-item p {
+            color: #666;
+            font-size: 0.95rem;
         }
 
         .btn {
@@ -1778,14 +1903,51 @@
 
     <!-- Main Content -->
     <div id="main-content">
-        <!-- Hero Section -->
+        <!-- Hero Section with Carousel -->
         <section class="hero" id="home">
+            <div class="carousel-wrapper">
+                <div class="carousel-slide active" style="background-image: url('hero1.bg');"></div>
+                <div class="carousel-slide" style="background-image: url('hero2.bg');"></div>
+                <div class="carousel-slide" style="background-image: url('hero3.bg');"></div>
+            </div>
+            <div class="carousel-dots" id="carouselDots"></div>
             <div class="hero-content">
                 <h1>Get Instant Loans in Uganda</h1>
                 <p class="hero-description">Quick approval within minutes. Borrow from UGX 6,000 to UGX 100,000. Flexible repayment from 1 to 12 months. Your trusted financial partner.</p>
                 <div class="hero-buttons">
                     <button class="btn btn-primary" onclick="applyForLoan()">Apply Now</button>
                     <button class="btn btn-secondary" onclick="trackLoan()">Track My Loan</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Loan Photos Gallery Section -->
+        <section class="loan-gallery">
+            <div class="gallery-title">
+                <h2>Why Choose Swift Loan</h2>
+                <p>Real stories from our satisfied customers across Uganda</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="gallery-loan1.jpg" alt="Business Growth with Swift Loan">
+                    <div class="gallery-item-content">
+                        <h3>Business Growth</h3>
+                        <p>Empower your small business with quick loans. Many traders have expanded their ventures with our support.</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="gallery-loan2.jpg" alt="Education Financing">
+                    <div class="gallery-item-content">
+                        <h3>Education Financing</h3>
+                        <p>Support your family's education dreams. Flexible terms make quality education accessible to all.</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="gallery-loan3.jpg" alt="Emergency Solutions">
+                    <div class="gallery-item-content">
+                        <h3>Emergency Solutions</h3>
+                        <p>Get funds within minutes for unexpected expenses. We're here when you need us most.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -2572,3 +2734,43 @@
     </script>
 </body>
 </html>
+
+<script>
+// Carousel auto-scroll functionality
+(function() {
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dotsContainer = document.getElementById('carouselDots');
+    let currentIndex = 0;
+
+    // Create dots
+    slides.forEach((_, index) => {
+        const dot = document.createElement('button');
+        dot.className = index === 0 ? 'dot active' : 'dot';
+        dot.onclick = () => goToSlide(index);
+        dotsContainer.appendChild(dot);
+    });
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === index);
+        });
+        document.querySelectorAll('.dot').forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+    }
+
+    function goToSlide(index) {
+        currentIndex = index;
+        showSlide(currentIndex);
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+    }
+
+    // Auto-scroll every 5 seconds
+    setInterval(nextSlide, 5000);
+})();
+</script>
+
