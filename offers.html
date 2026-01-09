@@ -2062,7 +2062,7 @@
                 </div>
 
                 <!-- Loan Offer 4 - Premium Loan -->
-                <div class="loan-card bg-white rounded-xl shadow-swift hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 transform hover:scale-105 hover:rotate-1 hover:shadow-2xl" data-amount="2100000" data-fee="0" data-tracking="LN-10004" data-months="8" data-offer-name="Premium Loan">
+                <div class="loan-card bg-white rounded-xl shadow-swift hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 transform hover:scale-105 hover:rotate-1 hover:shadow-2xl" data-amount="2100000" data-fee="17900" data-tracking="LN-10004" data-months="8" data-offer-name="Premium Loan">
                     <div class="flex justify-between items-start mb-4">
                         <h3 class="text-lg font-bold text-gray-800">Premium Loan</h3>
                         <span class="bg-primary text-white text-xs px-3 py-1 rounded-full">LN-10004</span>
@@ -2078,7 +2078,7 @@
                                 Processing Fee/refundable deposit:
                                 <a href="#" class="explain-fee-link text-primary text-xs underline ml-1">why? fee</a>
                             </span>
-                            <span class="font-semibold text-orange-600">UGX 0</span>
+                            <span class="font-semibold text-orange-600">UGX 17,900</span>
                         </div>
                         <div class="flex justify-between">
                             <span class="text-gray-600">Monthly Rate:</span>
@@ -2115,7 +2115,7 @@
                 </div>
 
                 <!-- Loan Offer 5 - Mega Loan -->
-                <div class="loan-card bg-white rounded-xl shadow-swift hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 transform hover:scale-105 hover:rotate-1 hover:shadow-2xl" data-amount="2800000" data-fee="0" data-tracking="LN-10005" data-months="10" data-offer-name="Mega Loan">
+                <div class="loan-card bg-white rounded-xl shadow-swift hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 transform hover:scale-105 hover:rotate-1 hover:shadow-2xl" data-amount="2800000" data-fee="23900" data-tracking="LN-10005" data-months="10" data-offer-name="Mega Loan">
                     <div class="flex justify-between items-start mb-4">
                         <h3 class="text-lg font-bold text-gray-800">Mega Loan</h3>
                         <span class="bg-primary text-white text-xs px-3 py-1 rounded-full">LN-10005</span>
@@ -2131,7 +2131,7 @@
                                 Processing Fee/refundable deposit:
                                 <a href="#" class="explain-fee-link text-primary text-xs underline ml-1">why? fee</a>
                             </span>
-                            <span class="font-semibold text-orange-600">UGX 0</span>
+                            <span class="font-semibold text-orange-600">UGX UGX 23,900</span>
                         </div>
                         <div class="flex justify-between">
                             <span class="text-gray-600">Monthly Rate:</span>
@@ -3159,10 +3159,8 @@ document.querySelectorAll(".select-offer-btn").forEach((btn) => {
       const card = this.closest(".loan-card");
       const trackingId = card.getAttribute("data-tracking");
 
-      if (trackingId === "LN-10004" ||
-          trackingId === "LN-10005" ||
-          trackingId === "LN-10006" ||
-          trackingId === "LN-10007") {
+if (trackingId === "LN-10006" ||
+    trackingId === "LN-10007") {
         e.preventDefault();
         e.stopImmediatePropagation();
         card.classList.add("not-qualified");
